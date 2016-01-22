@@ -1,11 +1,9 @@
+require 'rails'
 require 'active_record/dowsing/version'
+require 'active_record/dowsing/patch'
+require 'active_record/dowsing/railtie'
 
 module ActiveRecord
   module Dowsing
-    class Railtie < ::Rails::Railtie
-      initializer 'ActiveRecord::Dowsing patch' do
-        require 'active_record/dowsing/patch'
-      end
-    end
   end
 end

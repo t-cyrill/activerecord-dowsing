@@ -1,6 +1,13 @@
 module ActiveRecord
-  module ConnectionAdapters
-    class Mysql2Adapter < AbstractMysqlAdapter
+  module Dowsing
+    module Patch
+      def self.included(klass)
+        klass.class_eval do
+          alias_method :_original_execute, :execute
+          alias_method :execute, :custom_execute
+        end
+      end
+
       def filter(stack)
         unless @cleaner
           @cleaner = ActiveSupport::BacktraceCleaner.new
@@ -10,10 +17,9 @@ module ActiveRecord
         @cleaner.clean(stack)
       end
 
-      def execute(sql, name = nil)
-        super("#{sql} /* #{filter(caller).first} */", name)
+      def custom_execute(sql, name = nil)
+        _original_execute("#{sql} /* #{filter(caller).first} */", name)
       end
     end
   end
 end
-
