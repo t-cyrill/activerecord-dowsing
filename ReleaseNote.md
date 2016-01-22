@@ -1,3 +1,6 @@
+# 0.1.2 : 2016/1/22
+Feature: Support configruration `activerecord_dowsing.enabled`
+
 # 0.1.1 : 2016/1/22
 
 Fix: Remove `require: 'active_record-dowsing'` in README. No need any more.(Fixed name)
