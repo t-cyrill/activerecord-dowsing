@@ -1,3 +1,9 @@
+# 0.1.1 : 2016/1/22
+
+Fix: Remove `require: 'active_record-dowsing'` in README. No need any more.(Fixed name)
+Fix: Rewrite to modules.
+Fix: Wrong test spec.
+
 # 0.1.0 : 2016/1/21
 
 First Release

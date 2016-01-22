@@ -7,7 +7,7 @@ Add comment where is it called in your sql automatically. It's useful for code r
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activerecord-dowsing', require: 'active_record-dowsing'
+gem 'activerecord-dowsing'
 ```
 
 And then execute:
