@@ -20,20 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
+You can enable "activerecord-dowsing" by configuration.
+
+config/application.rb
+
+```
+config.x.activerecord_dowsing.enabled = true
+# or config.activerecord_dowsing.enabled = true
+```
+
 "activerecord-dowsing" changes all queries(with comment).
 
 ```
 SELECT `id` FROM `users`
 /* changes */
 SELECT `id` FROM `users` /* /app/controllers/users_controller.rb:12:in `foo' */
-```
-
-You can disable "activerecord-dowsing" by configuration.
-
-config/application.rb
-
-```
-config.activerecord_dowsing.enabled = false
 ```
 
 ## Development
