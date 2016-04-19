@@ -5,6 +5,11 @@ module ActiveRecord
         klass.class_eval do
           alias_method :_original_execute, :execute
           alias_method :execute, :custom_execute
+
+          @@app_name = ''
+          if Rails.configuration.x.activerecord_dowsing.try(:with_app_name)
+            @@app_name = "##{Rails.application.class.parent_name.downcase}"
+          end
         end
       end
 
@@ -18,7 +23,7 @@ module ActiveRecord
       end
 
       def custom_execute(sql, name = nil)
-        _original_execute("#{sql} /* #{filter(caller).first} */", name)
+        _original_execute("#{sql} /* #{filter(caller).first}#{@@app_name} */", name)
       end
     end
   end

@@ -26,7 +26,7 @@ config/application.rb
 
 ```
 config.x.activerecord_dowsing.enabled = true
-# or config.activerecord_dowsing.enabled = true
+# or config.activerecord_dowsing.enabled = true (Deplicated, will be removed 1.0)
 ```
 
 "activerecord-dowsing" changes all queries(with comment).
@@ -35,6 +35,18 @@ config.x.activerecord_dowsing.enabled = true
 SELECT `id` FROM `users`
 /* changes */
 SELECT `id` FROM `users` /* /app/controllers/users_controller.rb:12:in `foo' */
+```
+
+If you want to mark for specific application, use `with_app_name` option.
+
+```
+config.x.activerecord_dowsing.with_app_name = true
+```
+
+```
+SELECT `id` FROM `users`
+/* changes */
+SELECT `id` FROM `users` /* /app/controllers/users_controller.rb:12:in `foo'#app_name */
 ```
 
 ## Development
