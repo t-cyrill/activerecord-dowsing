@@ -4,8 +4,7 @@ module ActiveRecord
       config.activerecord_dowsing = ActiveSupport::OrderedOptions.new
 
       initializer 'ActiveRecord::Dowsing patch' do
-        if Rails.configuration.x.activerecord_dowsing.try(:enabled) \
-          || Rails.configuration.activerecord_dowsing.try(:enabled)
+        if Rails.configuration.x.activerecord_dowsing.try(:enabled)
           ActiveSupport.on_load :active_record do
             ActiveRecord::ConnectionAdapters::Mysql2Adapter.module_eval do
               include ActiveRecord::Dowsing::Patch

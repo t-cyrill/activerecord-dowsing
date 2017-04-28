@@ -26,7 +26,6 @@ config/application.rb
 
 ```
 config.x.activerecord_dowsing.enabled = true
-# or config.activerecord_dowsing.enabled = true (Deplicated, will be removed 1.0)
 ```
 
 "activerecord-dowsing" changes all queries(with comment).
